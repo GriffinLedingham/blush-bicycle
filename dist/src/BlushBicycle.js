@@ -90,7 +90,7 @@ var BlushBicycle = /** @class */ (function () {
                                     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
                                     var listingInfo = {
                                         title: ((_b = (_a = listing === null || listing === void 0 ? void 0 : listing.querySelector("td:nth-of-type(2)")) === null || _a === void 0 ? void 0 : _a.querySelector("a")) === null || _b === void 0 ? void 0 : _b.innerText) || "",
-                                        price: "$" + ((_e = (_d = (_c = listing === null || listing === void 0 ? void 0 : listing.querySelector("td:nth-of-type(2) table")) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.match(/\$([0-9]+\s[CAD|USD])/)) === null || _e === void 0 ? void 0 : _e[1]) || "",
+                                        price: "$".concat((_e = (_d = (_c = listing === null || listing === void 0 ? void 0 : listing.querySelector("td:nth-of-type(2) table")) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.match(/\$([0-9]+\s[CAD|USD])/)) === null || _e === void 0 ? void 0 : _e[1]) || "",
                                         location: ((_h = (_g = (_f = listing === null || listing === void 0 ? void 0 : listing.querySelector("td:nth-of-type(2) table")) === null || _f === void 0 ? void 0 : _f.textContent) === null || _g === void 0 ? void 0 : _g.match(/([a-zA-Z][a-zA-Z|\s]+)\,([a-zA-Z|\s]+)\,\sCanada/)) === null || _h === void 0 ? void 0 : _h[1]) || "",
                                         frameSize: ((_l = (_k = (_j = listing === null || listing === void 0 ? void 0 : listing.querySelector("td:nth-of-type(2)")) === null || _j === void 0 ? void 0 : _j.innerHTML) === null || _k === void 0 ? void 0 : _k.match(/\<b\>Frame\sSize\s:\s\<\/b\>\s([0-9|a-zA-Z]+)/)) === null || _l === void 0 ? void 0 : _l[1]) || "",
                                         type: ((_q = (_p = (_o = (_m = listing === null || listing === void 0 ? void 0 : listing.querySelector("td:nth-of-type(2)")) === null || _m === void 0 ? void 0 : _m.innerHTML) === null || _o === void 0 ? void 0 : _o.match(/\<br\>\s([a-zA-Z|\s|\/]+)/)) === null || _p === void 0 ? void 0 : _p[1]) === null || _q === void 0 ? void 0 : _q.split("\n")[0]) || "",
@@ -108,8 +108,8 @@ var BlushBicycle = /** @class */ (function () {
                     case 5:
                         _a.sent();
                         _loop_1 = function (element) {
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
                                     case 0:
                                         if (this_1.history.some(function (predicate) { return predicate.url === element.url; }))
                                             return [2 /*return*/, "continue"];
@@ -118,10 +118,10 @@ var BlushBicycle = /** @class */ (function () {
                                         console.log(element);
                                         if (!this_1.initialized)
                                             return [2 /*return*/, "continue"];
-                                        Mailer_1.sendEmail(element.price + " - " + element.title + " | BlushCycle", "<b>" + element.title + "</b><br><br>\n        " + element.price + "<br>\n        " + element.type + " - " + element.frameSize + "<br>\n        " + element.location + "<br>\n        <br>\n        " + element.description + "<br><br>\n        <a href=\"" + element.url + "\">" + element.url + "</a><br><br>\n        " + element.img + "\n        ");
+                                        (0, Mailer_1.sendEmail)("".concat(element.price, " - ").concat(element.title, " | BlushCycle"), "<b>".concat(element.title, "</b><br><br>\n        ").concat(element.price, "<br>\n        ").concat(element.type, " - ").concat(element.frameSize, "<br>\n        ").concat(element.location, "<br>\n        <br>\n        ").concat(element.description, "<br><br>\n        <a href=\"").concat(element.url, "\">").concat(element.url, "</a><br><br>\n        ").concat(element.img, "\n        "));
                                         return [4 /*yield*/, new Promise(function (r) { return setTimeout(r, 500); })];
                                     case 1:
-                                        _a.sent();
+                                        _b.sent();
                                         return [2 /*return*/];
                                 }
                             });
